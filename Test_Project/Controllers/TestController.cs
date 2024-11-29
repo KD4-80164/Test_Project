@@ -6,7 +6,9 @@ namespace Test_Project.Controllers
     {
         public IActionResult Index()
         {
+            // Test
             return View();
         }
+
     }
 }
