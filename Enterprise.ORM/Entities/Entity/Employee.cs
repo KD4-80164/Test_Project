@@ -17,8 +17,8 @@
         public double MonthlySalary { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
-        //public Department Department { get; set; }
-        //public IEnumerable<Project> Projects { get; set; }
+        public Department Department { get; set; }
+        public ICollection<Project> Projects { get; set; }
 
     }
 }
