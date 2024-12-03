@@ -1,3 +1,7 @@
+using Enterprise.Services.Managers;
+using Enterprise.Services.Managers.Interfaces;
+using Enterprise.Services.Repositories;
+using Enterprise.Services.Repositories.Interfaces;
 using EnterpriseRepository.Entities.AppDBContext;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +13,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<ApplicationDBContext>();
+builder.Services.AddTransient<IDepartmentRepository,DepartmenetRepository>();
+builder.Services.AddTransient<IEmployeeRepository,EmployeeRepository>();
+builder.Services.AddTransient<IEmployeeManager, EmployeeManager>();
+builder.Services.AddTransient<IDepartmentManager, DepartmentManager>();
+
+
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"),
